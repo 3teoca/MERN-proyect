@@ -1,12 +1,12 @@
 const express = require ("express")
-const taskController = require ("./controllers/takController.js")
-
 const router = express.Router()
 
-router.get ("/task")
-router.get ("/task/:id")
-router.post ("/task")
-router.put ("/task/:id")
-router.delete ("/task::id")
+const taskController = require ("../controllers/taskController.js")
+
+router.get ("/task", taskController.seeTasks)
+router.get ("/task/:id", taskController.seeTask)
+router.post ("/task", taskController.createTask)
+router.put ("/task/:id", taskController.editTask)
+router.delete ("/task/:id", taskController.deleteTask)
 
 module.export = router
