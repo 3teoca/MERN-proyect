@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle de tarea
+    </h1>
+    <p>
+        <b>Nombre</b>
+        <%= task.title %>
+    </p>
+    <p>
+        <b>Detalle</b>
+        <%= task.description%>
+    </p>
+    <p>
+        <b>Estado</b>
+        <%= task.done == 0? "Pendiente":"Realizada" %>
+    </p>
+    <br>
+
+    <a href="/tasks/edit/<%=task.id%>">
+        <button class= "button" id="editar" type="submit"> Editar</button> 
+    </a>
+
+    <a href="/tasks/delete/<%=task.id%>">
+        <button class= "button" id="editar" type="submit"> Eliminar</button> 
+    </a>
+
+    <a href="/tasks">
+        <button class= "button" id="Volver" type="submit"> Volver</button> 
+    </a>
+
+
+</body>
+</html>

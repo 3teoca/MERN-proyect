@@ -7,15 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Edición de tareas</h1>
-    <form>
-        <input type="text" name="title" placeholder="Titulo">
-        <input type="text" name="description" placeholder="Descripción">
+    <h1>Edicion de tareas</h1>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Titulo" value="<%= task.title %>">
+        <input type="text" name="description" placeholder="Descripción" value="<%= task.description %>"">
         <select type="hecho" id="categoria" name="categoria">
             <option value="1">Hecho</option>
             <option value="0">Pendiente</option>
         </select>
-        <input id="ingreso" type="submit" value="Crear"> </input>
+        <input id="ingreso" type="submit" value="Editar"> </input>
     </form>
     
 </body>

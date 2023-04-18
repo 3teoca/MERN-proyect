@@ -2,15 +2,20 @@ const db = require ("../database/models")
 
 const taskController = {
     seeTasks: (req,res) => {
-        db.Task.findAll()
+        db.Task.findAll({raw:true})
         .then (tasks => {
-            res.render("tasks",{tasks})
+    
+            res.render("tasks",{tasks}) 
+        })
+        .catch((err)=>{
+            res.send(err)
         })
     },
     seeTask: (req,res) => {
         db.Task.findByPk(req.params.id)
         .then (task=>{
-            res.send (task)
+            
+            res.render("detail", {task:task.dataValues})
         })
         /* .then (function(){
             if (task.length==0){
@@ -25,21 +30,47 @@ const taskController = {
         res.render ("createTask")
     },
     createdTask: (req,res) => {
-        res.render ("createTask")
+        db.Task.create({
+            title: req.body.title,
+            description:req.body.description,
+            done: req.body.categoria,
+        })
+        .then (res.redirect ("/tasks"))
+        .catch((err)=>{
+            res.send(err)
+        })
     },
     editTask: (req,res) => {
-        res.render ("editTask")
+        db.Task.findByPk(req.params.id)
+        .then (task=>{
+            
+            res.render("editTask", {task:task.dataValues})
+        })
+        
     },
     editedTask: (req,res) => {
-        res.send ("editTask")
+        db.Task.update ({
+            title: req.body.title,
+            description:req.body.description,
+            done: req.body.categoria,
+        },{where:{id:req.params.id}})
+
+        .then(res.redirect("/tasks"))
+
+        .catch((err)=>{
+            res.send(err)
+        })
+        
     },
     deleteTask: (req,res) => {
         db.Task.destroy({
             where:{id:req.params.id}
         })
-        .then(res.redirect("./task"))
-        
-    },
+        .then(res.redirect("/tasks"))
+        .catch((err)=>{
+            res.send(err)
+        })
+    }
 }
 
 

@@ -8,12 +8,22 @@
 </head>
 <body>
     <h1>Lista de tareas</h1>
-    <%  tasks.forEach(task)=>{ %>
-        <b>Tarea</b><%= task.title%>
-        <b>Descripcion</b><%= task.description%>
-        <b>Hecho</b><%= task.done==1?"Hecho":"Pendiente" %>
+    <%tasks.forEach(function(task){ %>
+
+        <p>
+        
+        <b>Tarea: <a href="/tasks/detail/<%=task.id %>"></b><%= task.title%>
+        </a>
         <br>
-    <% } %>
+        <b>Descripcion: </b><%= task.description%>
+        <br>
+        <b>Estado: </b><%= task.done == 0? "Pendiente":"Realizada" %>
+        <br>
+        </p>
+        
+    <% }) %>
+
+    <a href="/tasks/create/"><button> New Task</button></a>
 
 </body>
 </html>

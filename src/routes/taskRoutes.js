@@ -12,8 +12,7 @@ router.post ("/create", taskController.createdTask)
 router.get("/edit/:id", taskController.editTask)
 router.post("/edit/:id", taskController.editedTask)
 
-router.post ("/:id", taskController.deleteTask)
-
+router.get ("/delete/:id", taskController.deleteTask)
 
 
 module.exports = router
