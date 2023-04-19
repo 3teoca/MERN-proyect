@@ -4,36 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/detail.css"> 
+    <link rel="stylesheet" href="/tasks.css"> 
     <title>Document</title>
 </head>
 <body>
-    <h1>Detalle de tarea
-    </h1>
-    <p>
-        <b>Nombre</b>
-        <%= task.title %>
-    </p>
-    <p>
-        <b>Detalle</b>
-        <%= task.description%>
-    </p>
-    <p>
-        <b>Estado</b>
-        <%= task.done == 0? "Pendiente":"Realizada" %>
-    </p>
-    <br>
-
-    <a href="/tasks/edit/<%=task.id%>">
-        <button class= "button" id="editar" type="submit"> Editar</button> 
-    </a>
-
-    <a href="/tasks/delete/<%=task.id%>">
-        <button class= "button" id="editar" type="submit"> Eliminar</button> 
-    </a>
-
-    <a href="/tasks">
-        <button class= "button" id="Volver" type="submit"> Volver</button> 
-    </a>
+    <div>
+        <h1 class="titulo">Detalle de tarea
+        </h1>
+        <p>
+            <b>Nombre</b>
+            <span>
+                <%= task.title %>
+            </span>
+            
+        </p>
+        <p>
+            <b>Detalle</b>
+            <span>
+            <%= task.description%>
+            </span>
+        </p>
+        <p>
+            <b>Estado</b>
+            <span>
+            <%= task.done == 0? "Pendiente":"Realizada" %>
+            </span>
+        </p>
+        <br>
+    
+        <a href="/tasks/edit/<%=task.id%>">
+            <button class= "boton" id="editar" type="submit"> Editar</button> 
+        </a>
+    
+        <a href="/tasks/delete/<%=task.id%>">
+            <button class= "boton" id="eliminar" type="submit"> Eliminar</button> 
+        </a>
+    
+        <a href="/tasks">
+            <button class= "boton" id="Volver" type="submit"> Volver</button> 
+        </a>
+    </div>
 
 
 </body>

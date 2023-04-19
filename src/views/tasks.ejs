@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/tasks.css"> 
     <title>Document</title>
 </head>
 <body>
-    <h1>Lista de tareas</h1>
+    <h1 class="titulo">Lista de tareas</h1>
     <%tasks.forEach(function(task){ %>
 
-        <p>
+        <p class="tarea">
         
-        <b>Tarea: <a href="/tasks/detail/<%=task.id %>"></b><%= task.title%>
-        </a>
-        <br>
-        <b>Descripcion: </b><%= task.description%>
-        <br>
-        <b>Estado: </b><%= task.done == 0? "Pendiente":"Realizada" %>
-        <br>
+            <b>Tarea: <a href="/tasks/detail/<%=task.id %>"></b><%= task.title%>
+            </a>
+            <br>
+            <b>Descripcion: </b><span><%= task.description%></span>
+            <br>
+            <b>Estado: </b><span><%= task.done == 0? "Pendiente":"Realizada" %></span>
+            <br>
         </p>
         
     <% }) %>
-
-    <a href="/tasks/create/"><button> New Task</button></a>
-
+    <p class="botom">
+        <a class="boton" href="/tasks/create/"><button> New Task</button></a>
+    </p>
 </body>
 </html>
