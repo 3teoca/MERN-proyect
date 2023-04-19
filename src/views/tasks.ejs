@@ -12,14 +12,15 @@
     <%tasks.forEach(function(task){ %>
 
         <p class="tarea">
-        
-            <b>Tarea: <a href="/tasks/detail/<%=task.id %>"></b><%= task.title%>
+            <a href="/tasks/detail/<%=task.id %>">
+                <b>Tarea: </b><%= task.title%>
             </a>
             <br>
             <b>Descripcion: </b><span><%= task.description%></span>
             <br>
             <b>Estado: </b><span><%= task.done == 0? "Pendiente":"Realizada" %></span>
             <br>
+            
         </p>
         
     <% }) %>

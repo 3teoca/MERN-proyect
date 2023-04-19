@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/forms.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,9 +17,9 @@
             <option value="0">Pendiente</option>
         </select>
         <input id="ingreso" type="submit" value="Editar"> </input> 
-        
+        <a href="/tasks/detail/<%=task.id%>"><button class= "boton" id="Volver" > Volver</button>
+        </a>
     </form>
 
-        <a href="/tasks/detail/<%=task.id%>"><button class= "boton" id="Volver" type="submit"> Volver</button>
-        </a>
+        
 </body>

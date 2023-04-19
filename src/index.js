@@ -12,6 +12,7 @@ app.set ("views",path.resolve(__dirname,"views"))
 
 const taskRouter = require ("./routes/taskRoutes")
 const movieRouter = require ("./routes/movieRoutes")
+app.use ("/", taskRouter)
 app.use ("/tasks", taskRouter)
 app.use ("/movie", movieRouter)
 
